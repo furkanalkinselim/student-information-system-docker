@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.10)
+project(sis-project)
+set(CMAKE_CXX_STANDARD 17)
+add_executable(sis-app main.cpp)
+target_link_libraries(sis-app pqxx pq)
