@@ -34,6 +34,18 @@ All containers communicate over a private Docker network using Docker Compose.
 
 ---
 
+## Docker Hub Images
+
+The Docker images used in this project are publicly available on Docker Hub as required by the course.
+
+- **C++ Application Image:**  
+  https://hub.docker.com/r/semihgrcnn/sis-project-app
+
+- **PostgreSQL Database Image:**  
+  https://hub.docker.com/r/semihgrcnn/sis-project-postgres
+
+---
+
 ## Features
 - Add new student information
 - List all students
