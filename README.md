@@ -57,3 +57,21 @@ The Docker images used in this project are publicly available on Docker Hub as r
 ---
 
 ## Project Structure
+
+```text
+student-information-system-docker/
+├── .github/
+│   └── workflows/        # CI/CD Pipeline configurations
+├── docs/                 # Project documentation
+│   ├── CONTRIBUTING.md   # Contribution guidelines
+│   ├── INSTALL.md        # Installation & setup guide
+│   └── MANUAL.md         # User manual & instructions
+├── src/                  # Source code directory
+│   └── main.cpp          # Main C++ application logic
+├── .dockerignore         # Files excluded from Docker build
+├── .gitignore            # Files ignored by Git
+├── docker-compose.yml    # Orchestration config (App + DB)
+├── Dockerfile            # C++ image build instructions
+├── LICENSE               # MIT License
+├── Makefile              # Build commands
+└── README.md             # Project overview
