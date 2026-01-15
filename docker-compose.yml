@@ -5,16 +5,16 @@ services:
     image: postgres:latest
     container_name: sis-db
     environment:
-      POSTGRES_USER: sisuser
-      POSTGRES_PASSWORD: sispassword
-      POSTGRES_DB: sisdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: testdb
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
-      - db_data_v2:/var/lib/postgresql/data
+      - db_data_final_v3:/var/lib/postgresql/data
     networks:
       - sis-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U sisuser -d sisdb"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d testdb"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -26,16 +26,23 @@ services:
       db:
         condition: service_healthy
     environment:
-      - DB_HOST=db
+      - DB_HOST=sis-db
       - DB_PORT=5432
-      - DB_USER=sisuser
-      - DB_PASSWORD=sispassword
-      - DB_NAME=sisdb
+      - DB_USER=postgres
+      - DB_PASSWORD=12345
+      - DB_NAME=testdb
     networks:
       - sis-network
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 256M
 
 volumes:
-  db_data_v2:
+  db_data_final_v3:
 
 networks:
   sis-network:
