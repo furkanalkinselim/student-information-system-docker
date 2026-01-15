@@ -6,12 +6,10 @@
 using namespace std;
 using namespace pqxx;
 
-// Veritabani baglanti ayari (Docker ve Local uyumlu)
-string get_connection_string() {
-    // Docker'da "db" ismini, localde "127.0.0.1" kullanir
+
+string get_connection_string() 
     string db_host = getenv("DB_HOST") ? getenv("DB_HOST") : "127.0.0.1";
     
-    // DUZELTME: "hostaddr=" yerine "host=" kullandik. Boylece "db" ismini taniyacak.
     return "dbname=testdb user=postgres password=12345 host=" + db_host + " port=5432";
 }
 
@@ -29,9 +27,7 @@ void tabloyuHazirla() {
             islem.commit();
         }
     } catch (const std::exception &e) {
-        // Tablo zaten varsa veya baglanti hatasi olursa buraya duser
-        // Ilk acilista hata vermemesi icin sessizce gecebiliriz veya ekrana basabiliriz.
-        // cout << "Tablo kontrol: " << e.what() << endl; 
+ 
     }
 }
 
