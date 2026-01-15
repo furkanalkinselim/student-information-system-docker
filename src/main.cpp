@@ -1,7 +1,7 @@
 #include <iostream>
 #include <pqxx/pqxx>
 #include <string>
-#include <cstdlib> // Docker ortam degiskenleri icin gerekli
+#include <cstdlib>
 
 using namespace std;
 using namespace pqxx;
